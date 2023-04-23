@@ -1,4 +1,5 @@
-import {TaskList}  from "./components/TaskList"
+
+import { Interfaz } from "./components/interfaz"
 
 
 const App = () => {
@@ -6,8 +7,7 @@ const App = () => {
 
   return (
     <>
-      <TaskList/>
-      
+      <Interfaz/>
     </>
   )
 }
