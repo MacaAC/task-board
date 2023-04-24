@@ -1,5 +1,5 @@
 import AppBackground from "./components/BackgroundImage";
-import { TaskList } from "./components/TaskList"
+import { HomePage } from "./components/HomePage"
 
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
     <AppBackground>
-        <TaskList/>
+        <HomePage/>
     </AppBackground>
     </>
   )

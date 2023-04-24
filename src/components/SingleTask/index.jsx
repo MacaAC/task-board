@@ -1,10 +1,8 @@
 import { Box, IconButton, Flex } from "@chakra-ui/react";
 import { DeleteIcon, CheckIcon, EditIcon } from "@chakra-ui/icons";
 import PropTypes from "prop-types";
-//import { useState } from "react";
 
 export const SingleTask = ({ text, onDelete, onCompleted, onEdit }) => {
-  
 
 
   return (
@@ -20,7 +18,7 @@ export const SingleTask = ({ text, onDelete, onCompleted, onEdit }) => {
                 mr={2}
                 width="15%"
             />
-             <IconButton
+            <IconButton
                 size="sm"
                 aria-label="Edit Task"
                 icon={<EditIcon/>}

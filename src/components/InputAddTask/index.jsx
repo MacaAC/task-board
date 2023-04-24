@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 
 
-const AddTask = ({ newTask, handleChange, handleAddTask }) => {
+export const AddTask = ({ newTask, handleChange, handleAddTask }) => {
   return (
     <Box
       display="flex"
@@ -30,7 +30,6 @@ const AddTask = ({ newTask, handleChange, handleAddTask }) => {
   );
 };
 
-export default AddTask;
  AddTask.propTypes={
     newTask: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
