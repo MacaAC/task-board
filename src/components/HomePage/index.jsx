@@ -1,27 +1,26 @@
-import { useState } from "react";
-import { Box, Heading} from "@chakra-ui/react";
+import { useState,useContext } from "react";
+import { Box, Heading,IconButton} from "@chakra-ui/react";
 import { TasksToBeDone } from "../TasksToBeDone";
-import { CompletedTasksList } from "../completedTasks";
 import {AddTask} from "../InputAddTask";
 import {TaskModal} from "../Modal";
+import { InputSelectLanguage } from "../InputselectLanguage";
+import { Context } from "../../context/context";
+import { generalTranslations } from "../../translations/generalTranslations";
+import { useTranslate } from "../../hooks/useTranslate";
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+
+
 
 
 
 export const HomePage = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
-  const [completedTasks, setCompletedTasks] = useState([]);
   const [editedTaskIndex, setEditedTaskIndex] = useState(null)
+  const context = useContext(Context);
+  const translations = useTranslate(generalTranslations(context));
 
-
-  const handleCompleteTask = (index) => {
-    const task = tasks[index];
-    const newTasks = [...tasks];
-    newTasks.splice(index, 1);
-    setTasks(newTasks);
-    setCompletedTasks([...completedTasks, task]);
-  };
-
+  
   const handleAddTask = () => {
     setTasks([...tasks, newTask]);
     setNewTask("");
@@ -40,12 +39,36 @@ export const HomePage = () => {
     newTasks.splice(index, 1);
     setTasks(newTasks);
   };
+  
+  const changeTheme = () => {
+    context.clearTheme
+      ? context.setClearTheme(false)
+      : context.setClearTheme(true);
+  };
+ 
+ 
 
   return (
     <Box p="4" >
+        <Box as="header" display="flex">
+            <InputSelectLanguage/>
+                  <IconButton
+                  _hover={{ background: "none" }}
+                  icon={
+                    context.clearTheme ? (
+                      <Box border="1px solid black"  borderRadius="50%" padding="0.5rem" display="flex" justifyContent="center" alignItems="center">  <MoonIcon /></Box>
+                    ) : (
+                      <SunIcon />
+                    )
+                  }
+                  onClick={changeTheme}
+                  bg={"none"}
+                  color={context.clearTheme ? "black" : "white"}
+                ></IconButton>
+        </Box>
         <Box display="flex" flexDirection="column" alignItems="center" >
             <Box  margin="1rem" padding="1rem">
-                <Heading as="h1" mb="4" textAlign="center" margin="2rem"> Mi organizador de tareas </Heading>
+                <Heading as="h1" mb="4" textAlign="center" margin="2rem" color={context.clearTheme ? "black" : "white"}> {translations.title}</Heading>
                     <AddTask
                         newTask={newTask}
                         handleChange={handleChange}
@@ -53,22 +76,18 @@ export const HomePage = () => {
                     />
             </Box>
 
-            <Box display="flex" width="90%" justifyContent="space-around">
+            
+
+            <Box display="flex" width="90%" justifyContent="center" alignItems="center" flexDirection="column" >
                 <TasksToBeDone
                     tasks={tasks}
                     handleEditTask={handleEditTask}
                     handleDeleteTask={handleDeleteTask}
-                    handleCompleteTask={handleCompleteTask}
                 />
-                <CompletedTasksList
-                    tasks={completedTasks}
-                    handleEditTask={handleEditTask}
-                    handleDeleteTask={handleDeleteTask}
-                />
+
 
                 {editedTaskIndex !== null && (
                     <TaskModal tasks={tasks} editedTaskIndex={editedTaskIndex} setEditedTaskIndex={setEditedTaskIndex} setTasks={setTasks} />
-
                 )}
 
             </Box>

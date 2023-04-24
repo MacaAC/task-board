@@ -1,12 +1,19 @@
 import { Box,Heading } from "@chakra-ui/react"
 import PropTypes from "prop-types";
 import { SingleTask } from "../SingleTask";
+import { Context } from "../../context/context";
+import { generalTranslations } from "../../translations/generalTranslations";
+import { useTranslate } from "../../hooks/useTranslate";
+import { useContext } from "react";
 
-export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask, handleCompleteTask }) => {
+export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask }) => {
+  const context = useContext(Context);
+  const translations = useTranslate(generalTranslations(context));
+
   return (
     <Box borderRadius="10px" bg="#f2f2f2" padding="0.5rem" width="45%">
       <Heading as="h3" fontSize="1.5rem" margin="0 1rem 2rem 1rem" color="#666666" textAlign="center">
-        Tareas por realizar
+        {translations.subtitle}
       </Heading>
       {tasks.map((task, index) => (
         <SingleTask
@@ -14,7 +21,7 @@ export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask, handleC
           text={task}
           onEdit={() => handleEditTask(index)}
           onDelete={() => handleDeleteTask(index)}
-          onCompleted={() => handleCompleteTask(index)}
+         // onCompleted={() => handleCompleteTask(index)}
         />
       ))}
     </Box>
@@ -23,7 +30,7 @@ export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask, handleC
 
 TasksToBeDone.propTypes ={
     tasks: PropTypes.array.isRequired,
-    handleCompleteTask: PropTypes.func.isRequired,
+    //handleCompleteTask: PropTypes.func.isRequired,
     handleDeleteTask: PropTypes.func.isRequired,
     handleEditTask: PropTypes.func.isRequired
 

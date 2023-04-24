@@ -1,10 +1,16 @@
 import { Box, Input, IconButton } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import PropTypes from "prop-types";
+import { Context } from "../../context/context";
+import { generalTranslations } from "../../translations/generalTranslations";
+import { useTranslate } from "../../hooks/useTranslate";
+import { useContext } from "react";
 
 
 
 export const AddTask = ({ newTask, handleChange, handleAddTask }) => {
+  const context = useContext(Context);
+  const translations = useTranslate(generalTranslations(context));
   return (
     <Box
       display="flex"
@@ -16,7 +22,7 @@ export const AddTask = ({ newTask, handleChange, handleAddTask }) => {
     >
       <Input
         border="1px solid white"
-        placeholder="Escribe tu tarea aquí"
+        placeholder={translations.placeholder}
         value={newTask}
         onChange={handleChange}
         mr="2"
