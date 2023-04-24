@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Box, Heading, Input, IconButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, FormLabel, FormControl } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
-import { SingleTask } from "../SingleTask";
+import { Box, Heading, Input, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, FormLabel, FormControl } from "@chakra-ui/react";
+import { TasksToBeDone } from "../TasksToBeDone";
 import { CompletedTasksList } from "../completedTasks";
+import { AddTask} from "../InputAddTask"
 
 
 
@@ -31,8 +31,7 @@ export const TaskList = () => {
   };
 
   const handleEditTask = (index) =>{
-    console.log(tasks[index])//string
-    setEditedTaskIndex(index)//numero
+    setEditedTaskIndex(index)
   }
 
   const handleDeleteTask = (index) => {
@@ -42,34 +41,41 @@ export const TaskList = () => {
   };
 
   return (
-    <Box p="4">
-      <Heading as="h1" mb="4">
-        Añadir tarea
-      </Heading>
-      <Input
-        placeholder="Escribe tu tarea aquí"
-        value={newTask}
-        onChange={handleChange}
-        mr="2"
-      />
-      <IconButton
-        icon={<AddIcon />}
-        aria-label="Añadir tarea"
-        onClick={handleAddTask}
-      />
-      <Box>
-        {tasks.map((task, index) => (
-          <SingleTask
-            key={index}
-            text={task}
-            onEdit={() => handleEditTask(index)}
-            onDelete={() => handleDeleteTask(index)}
-            onCompleted={() => handleCompleteTask(index)}
-          />
-        ))}
-      </Box>
-      <CompletedTasksList tasks={completedTasks} />
-      {editedTaskIndex !== null && (
+    <Box p="4" >
+        <Box display="flex" flexDirection="column" alignItems="center" >
+            <Box  margin="1rem" padding="1rem">
+                <Heading as="h1" mb="4" textAlign="center" margin="2rem"> Mi organizador de tareas </Heading>
+                    <AddTask
+                        newTask={newTask}
+                        handleChange={handleChange}
+                        handleAddTask={handleAddTask}
+                    />
+            </Box>
+            
+            <Box display="flex" width="90%" justifyContent="space-around">
+                
+                
+                {/* <Box borderRadius="10px" bg="#f2f2f2" padding="0.5rem" width="45%">
+                    <Heading as="h3" fontSize="1.5rem" margin="0 1rem 2rem 1rem" color="#666666" textAlign="center">Tareas por realizar</Heading>
+                    {tasks.map((task, index) => (
+                        <SingleTask
+                            key={index}
+                            text={task}
+                            onEdit={() => handleEditTask(index)}
+                            onDelete={() => handleDeleteTask(index)}
+                            onCompleted={() => handleCompleteTask(index)}
+                        />
+                    ))}
+                </Box> */}
+                 <TasksToBeDone
+                  tasks={tasks}
+                  handleEditTask={handleEditTask}
+                  handleDeleteTask={handleDeleteTask}
+                  handleCompleteTask={handleCompleteTask}
+                />
+                <CompletedTasksList tasks={completedTasks} />
+
+                {editedTaskIndex !== null && (
   <Modal isOpen={true} onClose={() => setEditedTaskIndex(null)}>
     <ModalOverlay />
     <ModalContent>
@@ -107,7 +113,12 @@ export const TaskList = () => {
   </Modal>
 )}
 
+            </Box>
+      
+        </Box>
+      
 
     </Box>
   );
 };
+

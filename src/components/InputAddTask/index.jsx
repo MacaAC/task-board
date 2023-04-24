@@ -1,32 +1,38 @@
-import { Box, Heading, IconButton, Input } from "@chakra-ui/react"
-import { AddIcon } from "@chakra-ui/icons"
-import { useState } from "react";
- 
-export const InputAddTask = () => {
+import { Box, Input, IconButton } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+import PropTypes from "prop-types";
 
-    const [tasks, setTasks] = useState([]);
-    const [newTask, setNewTask] = useState("");
-    const handleAddTask = () => {
-        setTasks([...tasks, newTask]);
-        setNewTask("");
-    };
-    const handleChange = (event) => {
-        setNewTask(event.target.value);
-    };
-return (
-    <Box>
-        <Heading as="h1" mb="4"> Añadir tarea </Heading>
-        <Input
-                placeholder="Escribe tu tarea aquí"
-                value={newTask}
-                onChange={handleChange}
-                mr="2"
-            />
-        <IconButton
-            icon={<AddIcon />}
-            aria-label="Añadir tarea"
-            onClick={handleAddTask}
-        />
+
+
+const AddTask = ({ newTask, handleChange, handleAddTask }) => {
+  return (
+    <Box
+      display="flex"
+      borderRadius="10px"
+      bg="#f2f2f2"
+      justifyContent="center"
+      alignItems="center"
+      padding="1rem"
+    >
+      <Input
+        border="1px solid white"
+        placeholder="Escribe tu tarea aquí"
+        value={newTask}
+        onChange={handleChange}
+        mr="2"
+      />
+      <IconButton
+        icon={<AddIcon />}
+        aria-label="Añadir tarea"
+        onClick={handleAddTask}
+      />
     </Box>
-  )
-}
+  );
+};
+
+export default AddTask;
+ AddTask.propTypes={
+    newTask: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleAddTask: PropTypes.func.isRequired
+ }

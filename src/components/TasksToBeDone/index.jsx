@@ -1,37 +1,31 @@
 import { Box,Heading } from "@chakra-ui/react"
 import PropTypes from "prop-types";
 import { SingleTask } from "../SingleTask";
-import { useState } from "react";
 
-export const TasksToBeDone = ({tasks, onCompleteTask}) => {
-    //const [completedTasks, setCompletedTasks] = useState([]);
-
-    const handleCompleteTask = (index) => {
-        const task = tasks[index];
-        const newTasks = [...tasks];
-        newTasks.splice(index, 1);
-        // setTasks(newTasks);
-        // setCompletedTasks([...completedTasks, task]);
-        onCompleteTask(newTasks, task);
-      };
-
-    return(
-        <Box border="2px solid blue">
-            <Heading>Tareas por realizar</Heading>
-            {tasks.map((task, index) => (
-                <SingleTask
-                    key={index}
-                    text={task}
-                    onEdit={() => handleEditTask(index)}
-                    onDelete={() => handleDeleteTask(index)}
-                    onCompleted={() => handleCompleteTask(index)}
-                />
-        ))}
-        </Box>
-    )
-  };
+export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask, handleCompleteTask }) => {
+  return (
+    <Box borderRadius="10px" bg="#f2f2f2" padding="0.5rem" width="45%">
+      <Heading as="h3" fontSize="1.5rem" margin="0 1rem 2rem 1rem" color="#666666" textAlign="center">
+        Tareas por realizar
+      </Heading>
+      {tasks.map((task, index) => (
+        <SingleTask
+          key={index}
+          text={task}
+          onEdit={() => handleEditTask(index)}
+          onDelete={() => handleDeleteTask(index)}
+          onCompleted={() => handleCompleteTask(index)}
+        />
+      ))}
+    </Box>
+  );
+};
 
 TasksToBeDone.propTypes ={
     tasks: PropTypes.array.isRequired,
-    onCompleteTask: PropTypes.func.isRequired
+    handleCompleteTask: PropTypes.func.isRequired,
+    handleDeleteTask: PropTypes.func.isRequired,
+    handleEditTask: PropTypes.func.isRequired
+
+
 }

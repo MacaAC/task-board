@@ -1,5 +1,5 @@
-
-import { Interfaz } from "./components/interfaz"
+import AppBackground from "./components/BackgroundImage";
+import { TaskList } from "./components/TaskList"
 
 
 const App = () => {
@@ -7,7 +7,9 @@ const App = () => {
 
   return (
     <>
-      <Interfaz/>
+    <AppBackground>
+        <TaskList/>
+    </AppBackground>
     </>
   )
 }

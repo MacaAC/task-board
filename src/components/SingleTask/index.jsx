@@ -4,20 +4,21 @@ import PropTypes from "prop-types";
 //import { useState } from "react";
 
 export const SingleTask = ({ text, onDelete, onCompleted, onEdit }) => {
+  
 
 
   return (
-    <Flex justify="space-between" alignItems="center" mb={2}>
-        <Box as="p" mr={4}>
-            {text}
-        </Box>
-        <Flex>
+    <Flex justify="space-between" alignItems="center" mb={2} >
+        <Box as="p" mr={4} border="1px solid white" padding="0.5rem" width="100%"  borderRadius="1rem" display="flex">
+          <Box width="65%">{text}</Box>
+          <Flex>
             <IconButton
                 size="sm"
                 aria-label="Complete task"
                 icon={<CheckIcon />}
                 onClick={onCompleted}
                 mr={2}
+                width="15%"
             />
              <IconButton
                 size="sm"
@@ -25,6 +26,7 @@ export const SingleTask = ({ text, onDelete, onCompleted, onEdit }) => {
                 icon={<EditIcon/>}
                 onClick={onEdit}
                 mr={2}
+                width="15%"
             />
             <IconButton
                 size="sm"
@@ -32,9 +34,13 @@ export const SingleTask = ({ text, onDelete, onCompleted, onEdit }) => {
                 icon={<DeleteIcon />}
                 onClick={onDelete}
                 colorScheme="red"
+                width="15%"
             />
-        </Flex>
-    </Flex>
+          </Flex>
+    
+        </Box>
+  </Flex>
+        
   );
 }
 
