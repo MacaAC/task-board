@@ -11,7 +11,7 @@ export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask }) => {
   const translations = useTranslate(generalTranslations(context));
 
   return (
-    <Box borderRadius="10px" bg="#f2f2f2" padding="0.5rem" width="45%">
+    <Box borderRadius="10px" bg="#f2f2f2" padding="0.5rem" maxWidth="700px" width="100%" margin="0 auto">
       <Heading as="h3" fontSize="1.5rem" margin="0 1rem 2rem 1rem" color="#666666" textAlign="center">
         {translations.subtitle}
       </Heading>

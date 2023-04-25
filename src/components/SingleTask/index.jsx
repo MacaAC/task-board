@@ -44,4 +44,3 @@ SingleTask.propTypes = {
   onEdit: PropTypes.func.isRequired,
 };
 
-

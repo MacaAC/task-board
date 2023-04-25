@@ -7,7 +7,8 @@ export const generalTranslations = (par) => {
        editTask:  "Edit task",
        task: "Tasks",
        cancel:"Cancelar",
-       save:  "Save changes"
+       save:  "Save changes",
+       createdBy: "Created by Maca. All rights reserved."
 
 
       };
@@ -20,7 +21,8 @@ export const generalTranslations = (par) => {
         editTask: "Editar tarea",
         task: "Tareas",
         cancel:"Cancelar",
-        save:"Guardar cambios"
+        save:"Guardar cambios",
+        createdBy: "Creado por Maca. Todos los derechos reservados."
       };
     }
   
@@ -32,9 +34,11 @@ export const generalTranslations = (par) => {
         editTask:  "Editar tarefa",
         task:"Tarefa",
         cancel:"Cancelar",
-        save: "Salvar alterações"
-      };
-    }
+        save: "Salvar alterações",
+        createdBy: "Criado por Macarena. Todos os direitos reservados."
+      }
+      }
+    
   
     if (par.language === "fr") {
       return {
@@ -44,7 +48,8 @@ export const generalTranslations = (par) => {
         editTask:"Modifier la tâche",
         task:"Tâche",
         cancel:"Annuler",
-        save: "Enregistrer les modifications"
+        save: "Enregistrer les modifications",
+        createdBy:"Créé par Macarena. Tous les droits sont réservés."
       };
     }
   
@@ -56,7 +61,9 @@ export const generalTranslations = (par) => {
         editTask:"Modificare il compito",
         task:"Compito",
         cancel:"Annullare",
-        save:"Salva modifiche"
+        save:"Salva modifiche",
+    createdBy:"Creato da Macarena. Tutti i diritti riservati."
+
       };
     }
     if (par.language === "ru") {
@@ -67,7 +74,9 @@ export const generalTranslations = (par) => {
         editTask: "Редактировать задачу",
         task:"Задание",
         cancel:"Отменить",
-        save:"Сохранить изменения"
+        save:"Сохранить изменения",
+        createdBy:"Создано Макареной. Все права защищены."
+
       };
     }
     if (par.language === "zh") {
@@ -78,7 +87,9 @@ export const generalTranslations = (par) => {
         editTask:"编辑任务",
         task:"任务",
         cancel:"取消",
-        save: "保存更改"
+        save: "保存更改",
+        createdBy:"由 Macarena 創建。 版權所有。"
+
       };
     }
   };

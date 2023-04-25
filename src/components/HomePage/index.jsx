@@ -108,6 +108,7 @@ import { Context } from "../../context/context";
 import { generalTranslations } from "../../translations/generalTranslations";
 import { useTranslate } from "../../hooks/useTranslate";
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { Footer } from "../footer";
 
 export const HomePage = () => {
   const [tasks, setTasks] = useState([]);
@@ -175,6 +176,8 @@ export const HomePage = () => {
           <TaskModal tasks={tasks} editedTaskIndex={editedTaskIndex} setEditedTaskIndex={setEditedTaskIndex} setTasks={setTasks} />
         )}
       </VStack>
+      <Footer/>
+
     </Box>
   );
 };
