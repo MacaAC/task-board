@@ -14,7 +14,7 @@ export const SingleTask = ({ text, onDelete, onEdit }) => {
           <Box width="65%"><Text>{text}</Text></Box>
           
             <Box width="30%" display="flex" justifyContent="space-around" alignItems="center" >
-                <Checkbox isChecked={isChecked} onChange={() => setIsChecked(!isChecked)}/>
+                <Checkbox size='lg' colorScheme='orange' border="0.5px solid gray" isChecked={isChecked} onChange={() => setIsChecked(!isChecked)}/>
                 <IconButton
                     size="sm"
                     aria-label="Edit Task"

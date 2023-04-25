@@ -1,15 +1,23 @@
 import PropTypes from "prop-types";
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, FormLabel, FormControl, Input } from "@chakra-ui/react";
+import { Context } from "../../context/context";
+import { generalTranslations } from "../../translations/generalTranslations";
+import { useTranslate } from "../../hooks/useTranslate";
+import { useContext } from "react";
 
 export const TaskModal = ({ tasks, editedTaskIndex, setEditedTaskIndex, setTasks }) => {
+
+  const context = useContext(Context);
+  const translations = useTranslate(generalTranslations(context));
+
   return (
     <Modal isOpen={editedTaskIndex !== null} onClose={() => setEditedTaskIndex(null)}>
         <ModalOverlay />
         <ModalContent>
-            <ModalHeader>Editar tarea</ModalHeader>
+            <ModalHeader>{translations.edit}</ModalHeader>
             <ModalBody>
             <FormControl>
-                <FormLabel>Tarea</FormLabel>
+                <FormLabel>{translations.task}</FormLabel>
                 <Input
                 type="text"
                 value={tasks[editedTaskIndex]}
@@ -27,13 +35,13 @@ export const TaskModal = ({ tasks, editedTaskIndex, setEditedTaskIndex, setTasks
                 mr={3}
                 onClick={() => setEditedTaskIndex(null)}
             >
-                Cancelar
+                {translations.cancel}
             </Button>
             <Button
                 colorScheme="green"
                 onClick={() => setEditedTaskIndex(null)}
             >
-                Guardar
+                {translations.save}
             </Button>
             </ModalFooter>
       </ModalContent>

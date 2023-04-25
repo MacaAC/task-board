@@ -21,7 +21,6 @@ export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask }) => {
           text={task}
           onEdit={() => handleEditTask(index)}
           onDelete={() => handleDeleteTask(index)}
-         // onCompleted={() => handleCompleteTask(index)}
         />
       ))}
     </Box>
@@ -30,7 +29,6 @@ export const TasksToBeDone = ({ tasks, handleEditTask, handleDeleteTask }) => {
 
 TasksToBeDone.propTypes ={
     tasks: PropTypes.array.isRequired,
-    //handleCompleteTask: PropTypes.func.isRequired,
     handleDeleteTask: PropTypes.func.isRequired,
     handleEditTask: PropTypes.func.isRequired
 
