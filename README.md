@@ -45,7 +45,7 @@ Si deseas contribuir al desarrollo de esta aplicación, no dudes en crear un pul
 ## Información adicional
 Este proyecto es presentado con la intención de ganar una beca que otorga la municipalidad de Yerba Buena para obtener un curso de programación a cargo de Global Learning y posterior a eso, una pasantía de dos meses en una empresa tecnológica de la zona.
 
-¡Gracias por utilizar la aplicación Organizador de tareas! Si tienes alguna duda o comentario, no dudes en contactarnos.
+¡Gracias por utilizar la aplicación Organizador de tareas! Si tienes alguna duda o comentario, no dudes en contactarme.
 
 
 Finalmente [Acá está mi deployado](https://task-board-one.vercel.app/) 😍
