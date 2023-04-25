@@ -48,4 +48,4 @@ Este proyecto es presentado con la intención de ganar una beca que otorga la mu
 ¡Gracias por utilizar la aplicación Organizador de tareas! Si tienes alguna duda o comentario, no dudes en contactarnos.
 
 
-Finalmente [Acá está mi deployado](https://macaac.github.io/--) 😍
+Finalmente [Acá está mi deployado](https://task-board-one.vercel.app/) 😍
